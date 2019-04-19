@@ -2,7 +2,7 @@ package com.lottery.calculator.main;
 
 import java.awt.EventQueue;
 
-import com.lottery.calculator.swing.LoginDialog;
+import com.lottery.calculator.swing.LoginSystem;
 
 public class CalcMain {
 
@@ -11,7 +11,7 @@ public class CalcMain {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoginDialog window = new LoginDialog();
+					LoginSystem window = new LoginSystem();
 					window.getFrmLogin().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
