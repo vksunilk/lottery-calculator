@@ -12,8 +12,10 @@ public class AuthenticateLoginService {
 
 	public boolean authenticate(String userName, char[] passwordChar) {
 		String passwordStr = new String(passwordChar);
-return true;
-//		return loginUserDao.checkLogin(passwordStr, passwordStr);
+		if (userName == null && passwordStr == null)
+			return false;
+
+		return loginUserDao.checkLogin(passwordStr, passwordStr);
 	}
 
 }
