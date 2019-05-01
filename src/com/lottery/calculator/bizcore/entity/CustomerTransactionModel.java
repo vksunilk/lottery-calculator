@@ -7,11 +7,16 @@ import javax.swing.table.AbstractTableModel;
 
 public class CustomerTransactionModel extends AbstractTableModel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private final List<CustomerTransactionEntity> customerTransactionEntityList;
 
 	private final String[] columnNames = new String[] { "Id", "Name", "Daily", "Weekly", "Outstanding", "Paid",
 			"Total Amount" };
-	private final Class[] columnClass = new Class[] { Long.class, String.class, BigDecimal.class, BigDecimal.class,
+	private final Class[] columnClass = new Class[] { String.class, String.class, BigDecimal.class, BigDecimal.class,
 			BigDecimal.class, BigDecimal.class, BigDecimal.class };
 
 	public CustomerTransactionModel(List<CustomerTransactionEntity> customerTransactionEntityList) {
@@ -28,18 +33,21 @@ public class CustomerTransactionModel extends AbstractTableModel {
 		return columnClass[columnIndex];
 	}
 
+	@Override
 	public int getColumnCount() {
 		return columnNames.length;
 	}
 
+	@Override
 	public int getRowCount() {
 		return customerTransactionEntityList.size();
 	}
 
+	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		CustomerTransactionEntity row = customerTransactionEntityList.get(rowIndex);
 		if (0 == columnIndex) {
-			return row.getId();
+			return row.getCustomerId();
 		} else if (1 == columnIndex) {
 			return row.getName();
 		} else if (2 == columnIndex) {
